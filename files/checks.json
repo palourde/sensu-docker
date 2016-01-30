@@ -1,0 +1,45 @@
+{
+  "checks": {
+    "check_success": {
+      "command": "return.rb -c 0",
+      "interval": 30,
+      "subscribers": [
+        "linux"
+      ]
+    },
+    "check_warning": {
+      "command": "return.rb -c 1",
+      "interval": 30,
+      "subscribers": [
+        "linux"
+      ]
+    },
+    "check_critical": {
+      "command": "return.rb -c 2",
+      "interval": 30,
+      "subscribers": [
+        "linux"
+      ]
+    },
+    "check_unknown": {
+      "command": "return.rb -c 3",
+      "interval": 30,
+      "subscribers": [
+        "linux"
+      ]
+    },
+    "check_standalone": {
+      "command": "return.rb -c 2",
+      "interval": 30,
+      "standalone": true
+    },
+    "check_aggregate": {
+      "command": "return.rb -c 0",
+      "interval": 30,
+      "subscribers": [
+        "linux"
+      ],
+      "aggregate": true
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "rabbitmq": {
+    "host": "127.0.0.1",
+    "port": 5672,
+    "vhost": "/sensu",
+    "user": "sensu",
+    "password": "P@ssw0rd!"
+  },
+  "redis": {
+    "host": "127.0.0.1",
+    "port": 6379
+  },
+  "api": {
+    "host": "127.0.0.1",
+    "listen": "0.0.0.0",
+    "port": 4567
+  }
+}
