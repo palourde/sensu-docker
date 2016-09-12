@@ -1,4 +1,13 @@
-{
+{ 
+  "checks1": {
+    "check_flapping": {
+      "command": "return.rb -c ?",
+      "interval": 30,
+      "subscribers": [
+        "linux"
+      ]
+    }
+  }, 
   "checks": {
     "check_success": {
       "command": "return.rb -c 0",
@@ -28,9 +37,17 @@
         "linux"
       ]
     },
+    "check_flapping": {
+      "command": "return.rb -c ?",
+      "interval": 30,
+      "subscribers": [
+        "linux"
+      ]
+    },
     "check_standalone": {
       "command": "return.rb -c 2",
       "interval": 30,
+      "test_iframe": "iframe:http://google.com",
       "standalone": true
     },
     "check_aggregate": {

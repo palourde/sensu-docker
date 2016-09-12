@@ -10,6 +10,10 @@ class CheckReturn < Sensu::Plugin::Check::CLI
     :required => true
 
   def run
+    if config[:code] == "?"
+      config[:code] = Random.rand(4).to_s
+    end
+      
     if config[:code] == "0"
       ok "Success"
     elsif config[:code] == "1"
