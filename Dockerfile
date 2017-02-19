@@ -4,7 +4,7 @@ MAINTAINER Simon Plourde <simon.plourde@gmail.com>
 ARG VERSION
 
 RUN apt-get update &&\
-  apt-get install -y --force-yes sudo wget openssh-server redis-server
+  apt-get install -y --force-yes sudo wget openssh-server redis-server apt-transport-https
 
 RUN wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && \
   dpkg -i erlang-solutions_1.0_all.deb && \
@@ -17,11 +17,9 @@ RUN wget -qO - https://www.rabbitmq.com/rabbitmq-signing-key-public.asc | apt-ke
   apt-get install -y --force-yes rabbitmq-server erlang-nox && \
   rabbitmq-plugins enable rabbitmq_management
 
-RUN wget -q http://repositories.sensuapp.org/apt/pubkey.gpg -O- | apt-key add - &&\
-  echo "deb     http://repositories.sensuapp.org/apt sensu unstable" | tee /etc/apt/sources.list.d/sensu-unstable.list
-
-RUN wget -q http://repositories.sensuapp.org/apt/pubkey.gpg -O- | apt-key add - &&\
-  echo "deb     http://repositories.sensuapp.org/apt sensu main" | tee /etc/apt/sources.list.d/sensu.list && \
+RUN wget -q https://sensu.global.ssl.fastly.net/apt/pubkey.gpg -O- | sudo apt-key add - &&\
+  echo "deb     https://sensu.global.ssl.fastly.net/apt jessie main" | tee /etc/apt/sources.list.d/sensu.list && \
+  echo "deb     https://sensu.global.ssl.fastly.net/apt jessie unstable" | tee -a /etc/apt/sources.list.d/sensu.list && \
   apt-get update && \
   apt-get install -y sensu=$VERSION
 
