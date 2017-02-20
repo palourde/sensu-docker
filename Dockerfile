@@ -3,6 +3,8 @@ MAINTAINER Simon Plourde <simon.plourde@gmail.com>
 
 ARG VERSION
 
+RUN mkdir -p /var/run/sshd
+
 RUN apt-get update &&\
   apt-get install -y --force-yes sudo wget openssh-server redis-server apt-transport-https
 
@@ -23,7 +25,6 @@ RUN wget -q https://sensu.global.ssl.fastly.net/apt/pubkey.gpg -O- | sudo apt-ke
   apt-get update && \
   apt-get install -y sensu=$VERSION
 
-RUN mkdir -p /var/run/sshd
 RUN echo "EMBEDDED_RUBY=true" | tee /etc/default/sensu
 
 ADD files/config.json /etc/sensu/

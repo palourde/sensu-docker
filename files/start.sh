@@ -7,8 +7,8 @@ rabbitmqctl add_user sensu P@ssw0rd!
 rabbitmqctl set_permissions -p /sensu sensu ".*" ".*" ".*"
 rabbitmqctl set_user_tags sensu administrator
 
-/etc/init.d/sensu-server start
-/etc/init.d/sensu-api start
-/etc/init.d/sensu-client start
+/opt/sensu/bin/sensu-service start server &
+/opt/sensu/bin/sensu-service start api &
+/opt/sensu/bin/sensu-service start client &
 
 /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no
