@@ -42,7 +42,9 @@
       "interval": 30,
       "subscribers": [
         "linux"
-      ]
+      ],
+      "low_flap_threshold": 10,
+      "high_flap_threshold": 60
     },
     "check_standalone": {
       "command": "return.rb -c 2",
