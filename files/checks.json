@@ -59,6 +59,14 @@
         "linux"
       ],
       "aggregate": true
+    },
+    "check_metrics": {
+      "command": "return.rb -c 0",
+      "interval": 30,
+      "subscribers": [
+        "linux"
+      ],
+      "type": "metric"
     }
   }
 }
