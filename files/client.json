@@ -3,7 +3,13 @@
     "name": "sensu-server",
     "address": "127.0.0.1",
     "subscriptions": [
-      "linux"
-    ]
+      "linux",
+      "bar",
+      "baz"
+    ],
+    "secret": {
+      "foo": "bar",
+      "baz": "qux"
+    }
   }
 }

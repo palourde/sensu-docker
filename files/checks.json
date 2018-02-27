@@ -67,6 +67,15 @@
         "linux"
       ],
       "type": "metric"
+    },
+    "check_foo": {
+      "command": "return.rb -c 2",
+      "interval": 30,
+      "subscribers": [
+        "foo",
+        "bar",
+        "baz"
+      ]
     }
   }
 }

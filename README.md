@@ -4,7 +4,7 @@
 
 ### Build
 ```
-export SENSU_VERSION=0.27.1-2
+export SENSU_VERSION=1.2.1-2
 docker build --build-arg VERSION=$SENSU_VERSION -t palourde/sensu:$SENSU_VERSION .
 ```
 
