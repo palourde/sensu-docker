@@ -58,7 +58,15 @@
       "subscribers": [
         "linux"
       ],
-      "aggregate": true
+      "aggregate": "check_aggregates"
+    },
+    "check_aggregates": {
+      "command": "return.rb -c 0",
+      "interval": 30,
+      "subscribers": [
+        "linux"
+      ],
+      "aggregates": ["check_aggregates", "check_aggregates2"]
     },
     "check_metrics": {
       "command": "return.rb -c 0",
@@ -76,6 +84,12 @@
         "bar",
         "baz"
       ]
+    },
+    "check_token": {
+      "command": "return.rb -c :::es_cluster_name:::",
+      "interval": 30,
+      "source": ":::es_cluster_name:::",
+      "subscribers": ["linux"]
     }
   }
 }
