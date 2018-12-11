@@ -11,12 +11,12 @@ RUN apt-get update &&\
 RUN wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && \
   dpkg -i erlang-solutions_1.0_all.deb && \
   rm -f erlang-solutions_1.0_all.deb && \
-  apt-get install -y erlang-nox
+  apt-get install -y socat erlang-base erlang-nox
 
 RUN wget -qO - https://www.rabbitmq.com/rabbitmq-signing-key-public.asc | apt-key add - && \
-  echo "deb http://www.rabbitmq.com/debian/ testing main" > /etc/apt/sources.list.d/rabbitmq.list && \
+  echo "deb https://dl.bintray.com/rabbitmq/debian jessie main" > /etc/apt/sources.list.d/rabbitmq.list && \
   apt-get update && \
-  apt-get install -y --force-yes rabbitmq-server erlang-nox && \
+  apt-get install -y --force-yes rabbitmq-server && \
   rabbitmq-plugins enable rabbitmq_management
 
 RUN wget -q https://sensu.global.ssl.fastly.net/apt/pubkey.gpg -O- | sudo apt-key add - &&\
